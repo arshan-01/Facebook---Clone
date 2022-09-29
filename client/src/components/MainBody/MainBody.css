@@ -1,0 +1,267 @@
+.main__body{
+    display: flex;
+    background: #f0f2f5;
+}
+
+
+/* Main__SidebarLeft Start*/
+.Main__SidebarLeft{
+    background: rgb(240,242,245);
+    flex: 2.5;
+    height: calc(100vh - 60px);
+    overflow-y: scroll;
+}
+::-webkit-scrollbar{
+    width: 5px;
+}
+::-webkit-scrollbar-thumb{
+    background-color: rgb(190, 189, 189);
+}
+
+.SidebarLeft_list{
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    border: 1px solid rgb(240,242,245);
+    border-radius: 7px;
+}
+.SidebarLeft_list> .MuiSvgIcon-root{
+    color: #2e81f4;
+}
+
+.SidebarLeft_list:hover{
+    background: rgb(210, 211, 212); 
+    cursor: pointer;
+}
+
+.SidebarLeft_list > p{
+    margin-left: 15px;
+    font-weight: 500;
+}
+.SidebarLeft_shortcuts
+{
+    margin: 10px;    
+}
+/* Main__SidebarLeft End*/
+
+
+/* Main__MiddleFeed Start*/
+.Main__MiddleFeed{
+    flex: 5.5;
+    padding: 5px 100px;
+    height: calc(100vh - 60px);
+    overflow-y: scroll;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.fb__story{
+    display: flex;
+    align-items: center;
+    overflow-x: scroll;
+    background-color: white;
+    padding: 10px;
+    border: 1px solid white;
+    border-radius: 13px;
+    margin-bottom: 10px;
+}
+.fb__story::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
+/* .user__story{
+    position: relative;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 132.5px;
+    height: 200px;
+    margin: 2px;
+    border: 1px solid transparent;
+    border-radius: 13px;
+} */
+.friends__story{
+    display: flex;
+    align-items: center;
+}
+.singlefriend__story{
+    position: relative;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 132.5px;
+    height: 200px;
+    margin: 2px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 15px;
+}
+.singlefriend__story>h4{
+    font-weight: 400;
+  color: #eff2f5;
+}
+
+.submit__post{
+    background-color: white;
+    border: 1px solid #f0f2f5;
+    border-radius: 13px;
+    margin-bottom: 10px;
+    padding: 15px 0px;
+}
+.submitpost__top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    margin-bottom: 5px;
+}
+
+.submitpost__input{
+    padding: 10px 15px;
+    margin-left:10px ;
+    border-radius: 999px;
+    background-color: #eff2f5;
+    width: 90%;
+    
+}
+.submitpost__input > input{
+    border: none;
+    outline-width: 0;
+    background: transparent;
+    width: 100%;
+}
+.submitpost__input > input::placeholder{
+font-size:medium;
+}
+
+
+.submitpost__bottom{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-top: 15px;
+    
+}
+.submitpost_icon{
+     display: flex;
+    align-items: center;
+    padding: 10px 0px;
+}
+.submitpost_icon>p{
+    padding-left: 10px; 
+ }
+.Main__MiddleFeed::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
+.post{
+    background-color: #FFFF;
+    border: 1px solid #f0f2f5;
+    border-radius: 13px;
+    margin-bottom: 10px;
+    padding: 2px 0px;
+}
+.post__Top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+.postTop__left{
+    display: flex;
+    align-items: center;
+}
+.postTopleft__info{
+    margin-left:10px ;
+}
+.postTopleft__info>h4{
+    font-weight: 450;
+}
+.post__message{
+    padding: 10px 25px;
+
+}
+.post__message > p{
+   line-height: 25px;
+}
+.postTopleft__info>p{
+    color: gray;
+    font-size: small;
+}
+
+.post__Image>img{
+width: 100%;
+}
+
+.post__countLikeComment{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px;
+}
+.post__countLikeComment>p{
+  margin: 5px;
+}
+.count__like{
+    display: flex;
+    align-items: center;
+}
+.count__like>p{
+   padding-left: 10px; 
+}
+.LikeCommentShare__Panel{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0px;
+}
+
+
+
+/* Main__MiddleFeed End*/
+
+
+/* Main__MainRight Start*/
+.Main__MainRight{
+    /* background-color: white; */
+    flex: 3;
+    height: 100%;
+    overflow-y: scroll;
+   
+}
+/* Main__MainRight End*/
+
+
+        /* This classes will be applied on onClick event */
+.SidebarLeft__show{
+    display: block;
+    background: rgb(240,242,245);
+ }
+.SidebarLeft__show .SidebarLeft_list{
+   border: none;
+ }
+ 
+
+@media screen and (max-width: 1098px) {     
+    .Main__SidebarLeft{
+    display: none;
+    background-color: #eff2f5;
+ }
+  }
+@media screen and (max-width: 890px) {     
+    .Main__MiddleFeed{
+        padding: 5px;
+    }
+  }
+@media screen and (max-width: 698px) {
+  
+    .Main__MainRight{
+        display: none;
+        } 
+        .Main__MiddleFeed{
+            padding: 5px;
+        }
+  }
+
