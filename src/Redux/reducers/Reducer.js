@@ -1,7 +1,7 @@
 import * as actions from "../actions/actionType"
 
 const InitialState = {
-    Menu_State : false
+    Menu_State : null
 }
 export const MenuState_Reducer = (state = InitialState, action)=>{
     switch (action.type) {

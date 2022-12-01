@@ -9,6 +9,8 @@ import GroupsIcon from '@mui/icons-material/Groups';
 import ForumIcon from '@mui/icons-material/Forum';
 import NotificationsIcon from '@mui/icons-material/Notifications';import MenuIcon from '@mui/icons-material/Menu';
 import { Avatar,IconButton } from '@mui/material';
+import Badge from '@mui/material/Badge';
+import MailIcon from '@mui/icons-material/Mail';
 import { Link } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import { SidebarState_Change } from '../../Redux/actions/Action';
@@ -20,14 +22,26 @@ const Header = () => {
     <div className='Header'>
 
     <div className="header__left">
-      <Link to="/">
-      <img src= {logo} alt="fb-logo" style={{height: "40px"}}/>
+      <Link to="/" className='headerLeft__img'>
+      <img src= {logo} alt="fb-logo"/>
       </Link>
         
         <div className="header__search">
         <SearchIcon/>
         <input type="text" placeholder='Search Facebook'/>
         </div>
+        
+    {ActiveMenu ? 
+      <div className="header__leftoption" 
+      onClick={()=> {setActiveMenu(!ActiveMenu); dispatch(SidebarState_Change(!ActiveMenu))}}>
+   <Link to="/" className='headerleft__menu'> <MenuIcon fontSize = "large"/></Link>
+   </div>
+     
+   :
+   <div className="header__leftoption" onClick={()=> {setActiveMenu(!ActiveMenu); dispatch(SidebarState_Change(!ActiveMenu))}}>
+    <Link to="/sidebar" className='headerleft__menu'> <MenuIcon fontSize = "large"/></Link>
+   </div>
+    }
     </div>
 
     <div className="header__middle">
@@ -44,28 +58,21 @@ const Header = () => {
     <GroupsIcon fontSize = "large" />
    </div>
 
-    {ActiveMenu ? 
-      <div className="header__option" 
-      onClick={()=> {setActiveMenu(!ActiveMenu); dispatch(SidebarState_Change(ActiveMenu))}}>
-   <Link to="/"> <MenuIcon fontSize = "large"/></Link>
-   </div>
-     
-   :
-   <div className="header__option" onClick={()=> {setActiveMenu(!ActiveMenu); dispatch(SidebarState_Change(ActiveMenu))}}>
-    <Link to="/sidebar"> <MenuIcon fontSize = "large"/></Link>
-   </div>
-    }
     </div>
     <div className="header__right">
-    <IconButton >
-    <ForumIcon  />
+    <IconButton>
+    <Badge badgeContent={3} color="primary">
+      <ForumIcon />
+    </Badge>
   </IconButton>
     <IconButton>
-    <NotificationsIcon   />
+    <Badge badgeContent={4} color="primary">
+      <NotificationsIcon />
+    </Badge>
   </IconButton>
     <div className="header__info">
-    <Avatar/>
-    <h4>Arshan Nawaz</h4>
+    <Avatar style={{ height: '35px', width: '35px' }}/>
+    {/* <h4>Arshan Nawaz</h4> */}
    </div>
     </div>
     </div>

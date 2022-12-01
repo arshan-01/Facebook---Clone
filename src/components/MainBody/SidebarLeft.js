@@ -12,7 +12,7 @@ const SidebarLeft = () => {
   let SidebarState = useSelector((state)=>state.MenuState_Reducer.Menu_State)
   console.log(SidebarState)
   return (
-    <div className= {SidebarState?"Main__SidebarLeft":"SidebarLeft__show"} >
+    <div className= {SidebarState? "SidebarLeft__show" :"Main__SidebarLeft"} >
    
     <div className="SidebarLeft_list">
     <Avatar sx={{ height: '25px', width: '25px' }}/>
@@ -71,6 +71,12 @@ const SidebarLeft = () => {
     <KeyboardArrowDownIcon />
     <p>See more</p>
    </div>
+   {/* {SidebarState&&
+   <div className="SidebarLeft_logout">
+    <button>Log out</button>
+   </div>
+   } */}
+   
     </div>
   )
 }

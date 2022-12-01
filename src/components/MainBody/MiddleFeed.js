@@ -57,7 +57,7 @@ const MiddleFeed = () => {
     <div className="submitpost__bottom">
     <div className="submitpost_icon">
     <VideocamOutlinedIcon style={{color:"#ff3758"}}/> 
-    <p>  Live video</p>
+    <p>  Live </p>
     </div>
     <div className="submitpost_icon">
     <CollectionsOutlinedIcon style={{color:"#24d400"}}/> 

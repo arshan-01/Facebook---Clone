@@ -42,6 +42,22 @@
 {
     margin: 10px;    
 }
+
+
+/* .SidebarLeft_logout{
+    padding: 10px 15px;
+    border: 1px solid rgb(240,242,245);
+    border-radius: 7px;
+    
+}
+.SidebarLeft_logout>button{
+    background: #e2e5e7;
+    padding: 5px 15px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    width: 100%;
+    cursor: pointer;
+} */
 /* Main__SidebarLeft End*/
 
 
@@ -227,7 +243,7 @@ width: 100%;
 .Main__MainRight{
     /* background-color: white; */
     flex: 3;
-    height: 100%;
+    height: calc(100vh - 60px);
     overflow-y: scroll;
    
 }
@@ -262,6 +278,30 @@ width: 100%;
         } 
         .Main__MiddleFeed{
             padding: 5px;
+        }
+        .singlefriend__story{
+           
+            width:80.5px;
+            height: 180px;
+            margin: 2px;
+           
+            padding: 15px;
+        }
+        .singlefriend__story>h4{
+            font-size: small;
+            font-weight: 200;
+          color: #eff2f5;
+        }
+        .submitpost_icon>p{
+            font-size: small;
+            padding-left: 6px;
+        }
+        .submitpost_icon{
+            justify-content: space-around;
+            padding: 10px 10px;
+        }
+        .submitpost__bottom{
+            padding-right:  17px;
         }
   }
 
