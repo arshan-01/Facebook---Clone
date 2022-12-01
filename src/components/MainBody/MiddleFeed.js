@@ -11,6 +11,7 @@ import ChatBubbleOutlineSharpIcon from '@mui/icons-material/ChatBubbleOutlineSha
 import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
 import { Avatar } from '@mui/material';
 const MiddleFeed = () => {
+
   return (
     <div className='Main__MiddleFeed'>
     <div className="fb__story">
@@ -50,7 +51,7 @@ const MiddleFeed = () => {
     <div className="submitpost__top">
     <Avatar/>
     <div className="submitpost__input">
-    <input type="text" placeholder="What's on your mind, Arshan?"/>
+    <input type="text" placeholder="What's on your mind ?"/>
     </div>
     </div>
     <hr style={{ width:"92%",margin:"auto",borderTop:"1px solid rgb(210, 211, 212)"}}/>

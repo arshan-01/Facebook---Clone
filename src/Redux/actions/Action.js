@@ -5,3 +5,9 @@ export const SidebarState_Change = (payload)=>{
             payload : payload,
         }
 }
+export const Show_User = (payload)=>{
+        return {
+            type : action.Show_User,
+            payload : payload,
+        }
+}

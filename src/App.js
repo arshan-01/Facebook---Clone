@@ -14,12 +14,3 @@ function App() {
 }
 
 export default App;
-
-
- /* Header */
-     /* Body */
-
-    /* Sidebar 
-    Feed
-    left
-     */

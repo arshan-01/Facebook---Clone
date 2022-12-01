@@ -8,16 +8,35 @@ import StoreIcon from '@mui/icons-material/Store';
 import GroupsIcon from '@mui/icons-material/Groups';
 import ForumIcon from '@mui/icons-material/Forum';
 import NotificationsIcon from '@mui/icons-material/Notifications';import MenuIcon from '@mui/icons-material/Menu';
-import { Avatar,IconButton } from '@mui/material';
+import { Avatar,Button,IconButton } from '@mui/material';
 import Badge from '@mui/material/Badge';
-import MailIcon from '@mui/icons-material/Mail';
-import { Link } from "react-router-dom";
-import { useDispatch } from 'react-redux';
-import { SidebarState_Change } from '../../Redux/actions/Action';
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
+import { Show_User, SidebarState_Change } from '../../Redux/actions/Action';
+import { signOut } from 'firebase/auth';
+import { auth } from '../../firebase/firebase';
 
 const Header = () => {
   const [ActiveMenu, setActiveMenu] = useState(false)
+  let user = useSelector((state)=>state.MenuState_Reducer.user);
   const dispatch =useDispatch();
+  let navigate = useNavigate();
+ // Sign-out
+
+ function LogoutHandle() {
+  signOut(auth);
+  dispatch(Show_User(null))
+  navigate('/');
+}
+
+  signOut(auth).then(() => {
+    // Sign-out successful.
+    navigate('/');
+  }).catch((error) => {
+    // An error happened.
+    console.log(error)
+  });
+
   return (
     <div className='Header'>
 
@@ -60,6 +79,7 @@ const Header = () => {
 
     </div>
     <div className="header__right">
+    <Button onClick={LogoutHandle} style={{ marginLeft: '10px' }} size="small" variant="outlined">Logout</Button>
     <IconButton>
     <Badge badgeContent={3} color="primary">
       <ForumIcon />
@@ -71,8 +91,10 @@ const Header = () => {
     </Badge>
   </IconButton>
     <div className="header__info">
-    <Avatar style={{ height: '35px', width: '35px' }}/>
-    {/* <h4>Arshan Nawaz</h4> */}
+    <Avatar style={{ height: '35px', width: '35px' }} src={user.photoURL}/>
+    <h5 style={{ marginLeft: '10px' }}>{user.displayName}     
+   </h5>
+
    </div>
     </div>
     </div>

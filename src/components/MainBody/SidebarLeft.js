@@ -10,13 +10,14 @@ import { Avatar } from '@mui/material';
 import { useSelector } from 'react-redux';
 const SidebarLeft = () => {
   let SidebarState = useSelector((state)=>state.MenuState_Reducer.Menu_State)
+  let user = useSelector((state)=>state.MenuState_Reducer.user);
   console.log(SidebarState)
   return (
     <div className= {SidebarState? "SidebarLeft__show" :"Main__SidebarLeft"} >
    
     <div className="SidebarLeft_list">
     <Avatar sx={{ height: '25px', width: '25px' }}/>
-    <p>Arshan Nawaz</p>
+    <p>{user&& user.displayName}</p>
    </div>
    <div className="SidebarLeft_list">
     <PeopleIcon />
