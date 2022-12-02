@@ -29,13 +29,6 @@ const Header = () => {
   navigate('/');
 }
 
-  signOut(auth).then(() => {
-    // Sign-out successful.
-    navigate('/');
-  }).catch((error) => {
-    // An error happened.
-    console.log(error)
-  });
 
   return (
     <div className='Header'>

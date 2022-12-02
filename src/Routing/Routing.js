@@ -6,37 +6,35 @@ import SidebarLeft from "../components/MainBody/SidebarLeft";
 import Login from "../firebase/login";
 import { Navigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../firebase/firebase";
+import { onAuthStateChanged  } from "firebase/auth";
 import { Show_User } from "../Redux/actions/Action";
+import { auth } from "../firebase/firebase";
 function Routing() {
-const dispatch = useDispatch();
-  let user = useSelector((state)=>state.MenuState_Reducer.user);
-console.log(user)
+  const dispatch = useDispatch();
+  let Current_user = useSelector((state) => state.MenuState_Reducer.user);
+  console.log(Current_user);
 
-useEffect(() => {
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      dispatch(Show_User(user))
-      console.log(user)
-     } else {
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        dispatch(Show_User(user));
+        console.log(user)
+       } else {
+       
+        console.log("User is signed out")
+      }});
+  }, [])
 
-      console.log("User is signed out")
-    }});
-}, [])
 
   return (
     <BrowserRouter>
       <div>
-     
-        {user && <Header /> }
+        {Current_user && <Header />}
         <Routes>
-          <Route path="/" element={!user ? <Login /> : <MainBody />} />
+          <Route path="/" element={!Current_user ? <Login /> : <MainBody />} />
           <Route
             path="/login"
-            element= {user && (
-          <Navigate to="/" replace={true} />
-        )}
+            element={Current_user && <Navigate to="/" replace={true} />}
           />
           <Route path="/sidebar" element={<SidebarLeft />} />
         </Routes>
