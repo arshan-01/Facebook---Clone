@@ -7,7 +7,6 @@ import ChatBubbleOutlineSharpIcon from "@mui/icons-material/ChatBubbleOutlineSha
 import ShareOutlinedIcon from "@mui/icons-material/ShareOutlined";
 
 function Post({ profilePic, caption, username, timestamp, postImage }) {
-    console.log(timestamp)
   return (
     <div className="post">
       <div className="post__Top">

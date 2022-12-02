@@ -29,9 +29,12 @@ function Routing() {
   return (
     <BrowserRouter>
       <div>
+      {/* Header will show only if we have a logged user */}
         {Current_user && <Header />}
         <Routes>
+        {/* if we have not any user will go to login page other wise to main page or home page */}
           <Route path="/" element={!Current_user ? <Login /> : <MainBody />} />
+          {/* if user is not logged and he is trying to access the homepage or main page he will redirected to login page */}
           <Route
             path="/login"
             element={Current_user && <Navigate to="/" replace={true} />}

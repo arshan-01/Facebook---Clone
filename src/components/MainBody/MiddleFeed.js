@@ -25,6 +25,7 @@ const MiddleFeed = () => {
   const [postInput, setpostInput] = useState("");
   const [imageUrl, setimageUrl] = useState("");
 
+  //getting user form redux
   let user = useSelector((state) => state.MenuState_Reducer.user);
 
   // Getting firebase post
@@ -42,12 +43,17 @@ const MiddleFeed = () => {
   }, []);
 
   function handlePost(event) {
-    event.preventDefault();
+    
+    event.preventDefault();    // for prevent deafult behave
+    // uploading image to firebase storage 
     const storageRef = ref(storage, `/fb-clone-images/${postImage.name}`);
     const uploadTask = uploadBytesResumable(storageRef, postImage);
+
     // download url
     getDownloadURL(uploadTask.snapshot.ref).then((url) => {
       setimageUrl(url);
+      // sending data tofirestire
+      // posts is name of database 
       const dbRef = collection(db, "posts");
       addDoc(dbRef, {
         caption: postInput,
@@ -56,11 +62,14 @@ const MiddleFeed = () => {
         username: user.displayName,
         postImage: url,
       })
+
+      //if success
         .then((docRef) => {
           console.log("Document has been added successfully");
           setpostImage(null);
           setpostInput("");
         })
+        // if fail 
         .catch((error) => {
           console.log(error);
         });

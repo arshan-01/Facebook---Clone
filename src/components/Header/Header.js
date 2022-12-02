@@ -21,12 +21,14 @@ const Header = () => {
   let user = useSelector((state)=>state.MenuState_Reducer.user);
   const dispatch =useDispatch();
   let navigate = useNavigate();
- // Sign-out
 
+
+ // Sign-out
  function LogoutHandle() {
   signOut(auth);
   dispatch(Show_User(null))
-  navigate('/');
+  //navigate to home page means login page, if signout then will redirect to login page
+  navigate('/');   
 }
 
 
