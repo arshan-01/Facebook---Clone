@@ -31,10 +31,7 @@ const MiddleFeed = () => {
   // Getting firebase post
   console.log(postss);
   useEffect(() => {
-    const postRef = query(
-      collection(db, "posts"),
-      orderBy("timestamp", "desc")
-    );
+    const postRef = query(collection(db, "posts"),orderBy("timestamp", "desc"));
     onSnapshot(postRef, (querySnapshot) => {
       setpostss(
         querySnapshot.docs.map((doc) => ({ id: doc.id, data: doc.data() }))
